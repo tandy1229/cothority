@@ -31,7 +31,8 @@ func init() {
 	log.ErrFatal(err)
 }
 
-const defaultTimeout = 10 * time.Second
+//const defaultTimeout = 10 * time.Second
+const defaultTimeout = 90 * time.Second
 const defaultSubleaderFailures = 2
 
 // VerificationFn is called on every node. Where msg is the message that is
@@ -286,7 +287,8 @@ func (p *BlsCosi) startSubProtocol(tree *onet.Tree) (*SubBlsCosi, error) {
 	cosiSubProtocol.Data = p.Data
 	// Fail fast enough if the subleader is failing to try
 	// at least three leaves as new subleader
-	cosiSubProtocol.Timeout = p.Timeout / time.Duration(p.SubleaderFailures+1)
+	//cosiSubProtocol.Timeout = p.Timeout / time.Duration(p.SubleaderFailures+1)
+	cosiSubProtocol.Timeout = p.Timeout
 	// Give one leaf for free but as we don't know how many leaves
 	// could fail from the other trees, we need as much as possible
 	// responses. The main protocol will deal with early answers.

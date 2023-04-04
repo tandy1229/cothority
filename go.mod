@@ -59,3 +59,5 @@ require (
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 	gotest.tools/v3 v3.0.3 // indirect
 )
+
+replace go.dedis.ch/onet/v3 => ../onet
